@@ -1,3 +1,17 @@
+var api_key = "";
+var client_id = "";
+fetch("keys.json")
+.then((response) => {
+  return response.json();
+})
+.then((result) => {
+  api_key = result.api_key;
+  client_id = result.client_id;
+})
+.catch((err)=>{
+  console.log("Credentials not found: " + err);
+});
+
 function authenticate() {
   return gapi.auth2.getAuthInstance()
     .signIn({scope: "https://mail.google.com/ https://www.googleapis.com/auth/gmail.compose https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.readonly"})
@@ -5,7 +19,7 @@ function authenticate() {
       function(err) { console.error("Error signing in", err); });
 }
 function loadClient() {
-  gapi.client.setApiKey("AIzaSyCemD5swL6ri_s1RtVgdaFQ5WRxsaa6CGQ");
+  gapi.client.setApiKey(api_key);
   return gapi.client.load("https://gmail.googleapis.com/$discovery/rest?version=v1")
     .then(function() { console.log("GAPI client loaded for API"); },
       function(err) { console.error("Error loading GAPI client for API", err); });
@@ -21,7 +35,7 @@ function getProfile() {
   function(err) { console.error("Execute error", err); });
 }
 gapi.load("client:auth2", function() {
-  gapi.auth2.init({client_id: "975452158954-q00t3poa8rah3j90u91565p5ndk4d702.apps.googleusercontent.com"});
+  gapi.auth2.init({client_id: client_id});
 });
 
 
