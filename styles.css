@@ -1,0 +1,14 @@
+body {
+  background-color: skyblue;
+}
+#myLogo {
+  color:tomato;
+  display: inline;
+}
+#myBrand {
+  display: inline;
+  color: tomato;
+}
+.navItem {
+  border: unset;
+}
