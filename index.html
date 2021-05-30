@@ -22,12 +22,11 @@
     <div class="pageHeader position-sticky m-2">
       <i class="fa fa-envelope fa-4x" id="myLogo" aria-hidden="true"></i>
       <h1 id="myBrand">MyMail</h1>
-      <button onclick="authenticate().then(loadClient)">authorize and load</button>
-      <button onclick="getProfile()">execute</button>
+      <button class="btn btn-primary" onclick="authenticate().then(loadClient).then(()=>{getTable()})">Sign In</button>
     </div>
-    <div class="mx-2 my-3">
+    <div class="m-2">
       <div class="row">
-        <div class="col-sm-12 col-md-4 col-lg-4" id="myNav">
+        <div class="col-sm-12 col-md-4 col-lg-4 my-1" id="myNav">
           <nav class="navbar navbar-light navbar-expand-md navbar-expand-lg bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -35,20 +34,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="nav flex-column w-100 ">
                 <li class="nav-item">
-                  <button class="navItem btn btn-light w-100 text-left">Inbox</button>
+                  <button class="navItem btn btn-light w-100 text-left" onclick="getTable()">Inbox</button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sent items</a>
+                  <button class="navItem btn btn-light w-100 text-left" >Compose (not implemented)</button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Drafts</a>
+                  <button class="navItem btn btn-light w-100 text-left" >Sent items (not implemented)</button>
                 </li>
+                <li class="nav-item">
+                  <button class="navItem btn btn-light w-100 text-left" >Drafts (not implemented)</button>
+                </li>
+                
               </ul>
             </div>
           </nav>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-4">
-          <div id="pageBody"></div>
+        <div class="col-sm-12 col-md-8 col-lg-8 my-1">
+          <div id="pageBody" class="bg-light"></div>
         </div>
       </div>
     </div>
@@ -56,6 +59,8 @@
   </div>
 
   
+  <script src="getData.js"></script>
+  <script src="getElements.js"></script>
   <script src="script.js"></script>
   <!-- <bootstrap> -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

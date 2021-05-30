@@ -12,3 +12,8 @@ body {
 .navItem {
   border: unset;
 }
+#pageBody {
+  width: auto;
+  height: 600px;
+  overflow: auto;
+}
